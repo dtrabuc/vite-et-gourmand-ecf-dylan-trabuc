@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Vite & Gourmand</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>🍴 Vite & Gourmand</h1>
+            </div>
+            <ul id="menuLiens">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="nos-menus.html">Nos Menus</a></li>
+                <li><a href="login.html" class="actif">Connexion</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container" style="margin-top: 60px; max-width: 500px;">
+        <h2 class="titre-section">Connexion</h2>
+        <div class="formulaire-commande">
+            <form id="formLogin" onsubmit="handleLogin(event)">
+                <div class="champ">
+                    <label>Email *</label>
+                    <input type="email" id="email" required value="admin@vitegourmand.fr">
+                </div>
+                <div class="champ">
+                    <label>Mot de passe *</label>
+                    <input type="password" id="password" required placeholder="Entrez votre mot de passe">
+                </div>
+                <div id="erreurLogin" style="display: none; background: #ffebee; padding: 15px; border-radius: 8px; margin: 15px 0; color: #d32f2f; font-weight: 500;">
+                    ❌ Identifiants incorrects
+                </div>
+                <button type="submit" class="btn btn-principal btn-large">Se connecter</button>
+                <p style="text-align: center; margin-top: 20px;">
+                    <a href="nos-menus.html" style="color: var(--couleur-principale);">← Retour aux menus</a>
+                </p>
+            </form>
+        </div>
+        <div style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin-top: 20px; text-align: center;">
+            <p style="margin: 5px 0; font-size: 0.9em;">🔑 <strong>Compte test :</strong></p>
+            <p style="margin: 5px 0; font-size: 0.85em;">Email: <code>admin@vitegourmand.fr</code></p>
+            <p style="margin: 5px 0; font-size: 0.85em;">Mot de passe: <code>admin123</code></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Vite & Gourmand</p>
+    </footer>
+
+    <script>
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const erreur = document.getElementById('erreurLogin');
+
+            if (email === 'admin@vitegourmand.fr' && password === 'admin123') {
+                localStorage.setItem('user', JSON.stringify({ email, nom: 'Jean Dupont' }));
+                window.location.href = 'compte.html';
+            } else {
+                erreur.style.display = 'block';
+                setTimeout(() => erreur.style.display = 'none', 3000);
+            }
+        }
+    </script>
+</body>
+</html>
