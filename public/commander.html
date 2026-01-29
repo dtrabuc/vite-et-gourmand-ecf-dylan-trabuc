@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Commander - Vite & Gourmand</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1>Vite & Gourmand</h1>
+      </div>
+      <ul id="menuLiens">
+        <li><a href="index.html" class="lien">Accueil</a></li>
+        <li><a href="nos-menus.html" class="lien">Nos menus</a></li>
+        <li><a href="commander.html" class="lien actif">Commander</a></li>
+        <li><a href="compte.html" class="lien">Mon compte</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2 class="titre-section">Passer une commande</h2>
+
+    <div class="contenu-commande">
+      <!-- Colonne gauche : Sélection du menu -->
+      <div class="selection-menu">
+        <h3>1. Choisissez votre menu</h3>
+        <div id="selectionMenus" class="liste-selection-menus">
+          <!-- Menus chargés via JS -->
+        </div>
+      </div>
+
+      <!-- Colonne droite : Formulaire et récapitulatif -->
+      <div class="formulaire-commande">
+        <form id="formulaireCommande" onsubmit="return validerCommande()">
+          <h3>2. Informations de livraison</h3>
+          
+          <div class="champ">
+            <label for="date">Date de l'événement *</label>
+            <input type="date" id="date" name="date" required>
+          </div>
+
+          <div class="champ">
+            <label for="heure">Heure *</label>
+            <input type="time" id="heure" name="heure" required>
+          </div>
+
+          <div class="champ">
+            <label for="personnes">Nombre de personnes *</label>
+            <input type="number" id="personnes" name="personnes" min="10" value="10" required>
+          </div>
+
+          <div class="champ">
+            <label for="adresse">Adresse *</label>
+            <input type="text" id="adresse" name="adresse" placeholder="123 rue de la République" required>
+          </div>
+
+          <div class="champ">
+            <label for="ville">Ville *</label>
+            <input type="text" id="ville" name="ville" placeholder="Paris" required>
+          </div>
+
+          <div class="champ">
+            <label for="codePostal">Code postal *</label>
+            <input type="text" id="codePostal" name="codePostal" placeholder="75001" required>
+          </div>
+
+          <h3>3. Récapitulatif</h3>
+          <div class="recapitulatif">
+            <div class="ligne-recap">
+              <span>Menu sélectionné :</span>
+              <span id="recapMenu">Aucun</span>
+            </div>
+            <div class="ligne-recap">
+              <span>Prix par personne :</span>
+              <span id="recapPrixUnitaire">0 €</span>
+            </div>
+            <div class="ligne-recap">
+              <span>Nombre de personnes :</span>
+              <span id="recapPersonnes">10</span>
+            </div>
+            <div class="ligne-recap total">
+              <span>Total :</span>
+              <span id="recapTotal">0,00 €</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-principal btn-large">Valider la commande</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 Vite & Gourmand. Tous droits réservés.</p>
+      <p>Contact : contact@vite-gourmand.fr | 01 23 45 67 89</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menuLiens = document.getElementById('menuLiens');
+      menuLiens.classList.toggle('active');
+    }
+  </script>
+  <script src="donnees.js"></script>
+  <script src="commander.js"></script>
+</body>
+</html>

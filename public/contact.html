@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Contact</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="menu-top">
+    <div class="conteneur">
+      <a href="index.html" style="text-decoration: none;">
+        <div style="display: flex; align-items: center;">
+          <div class="rond-logo">V&G</div>
+          <span style="color: #8b2635; font-weight: bold; margin-left: 10px;">Vite & Gourmand</span>
+        </div>
+      </a>
+      <div class="menu-liens">
+        <a href="index.html" class="lien">Accueil</a>
+        <a href="menus.html" class="lien">Menus</a>
+        <a href="login.html" class="lien">Connexion</a>
+        <a href="contact.html" class="lien actif">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <div style="padding: 40px 20px;">
+    <div class="conteneur">
+      <h1>Contactez-nous</h1>
+      <p style="font-size: 1.1em; color: #6b6b6b; text-align: center;">Une question ? Un projet ? Notre équipe est à votre écoute</p>
+      
+      <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px; margin-top: 40px;">
+        
+        <!-- formulaire -->
+        <div style="background: white; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          <form id="formContact" onsubmit="return envoyerContact()">
+            <div class="champ">
+              <label>Nom complet *</label>
+              <input type="text" required>
+            </div>
+            <div class="champ">
+              <label>Email *</label>
+              <input type="email" id="emailContact" required>
+            </div>
+            <div class="champ">
+              <label>Téléphone</label>
+              <input type="tel">
+            </div>
+            <div class="champ">
+              <label>Sujet *</label>
+              <select required>
+                <option value="">Choisir un sujet</option>
+                <option value="devis">Demande de devis</option>
+                <option value="info">Demande d'information</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+            <div class="champ">
+              <label>Message *</label>
+              <textarea rows="6" required></textarea>
+            </div>
+            <button type="submit" class="bouton-primaire">Envoyer</button>
+          </form>
+          
+          <!-- message succes -->
+          <div id="msgSucces" style="display: none; text-align: center; padding: 40px;">
+            <div style="width: 80px; height: 80px; background: #2d7a3e; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 3em; margin: 0 auto 20px;">✓</div>
+            <h3>Message envoyé !</h3>
+            <p>Merci de nous avoir contactés. Notre équipe vous répondra dans les plus brefs délais.</p>
+          </div>
+        </div>
+
+        <!-- infos contact -->
+        <div>
+          <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 20px;">
+            <div style="font-size: 2em; margin-bottom: 10px;">📍</div>
+            <h3>Adresse</h3>
+            <p style="margin: 0;">15 rue de la Gastronomie<br>75001 Paris<br>France</p>
+          </div>
+          
+          <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 20px;">
+            <div style="font-size: 2em; margin-bottom: 10px;">📞</div>
+            <h3>Téléphone</h3>
+            <p style="margin: 0;">+33 (0)1 23 45 67 89</p>
+          </div>
+          
+          <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 20px;">
+            <div style="font-size: 2em; margin-bottom: 10px;">✉️</div>
+            <h3>Email</h3>
+            <p style="margin: 0;">contact@vite-et-gourmand.fr</p>
+          </div>
+          
+          <div style="background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+            <div style="font-size: 2em; margin-bottom: 10px;">🕐</div>
+            <h3>Horaires</h3>
+            <p style="margin: 0;">Lun-Ven: 9h00 - 19h00<br>Sam: 10h00 - 18h00<br>Dim: 10h00 - 16h00</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="conteneur">
+      <div style="text-align: center; padding: 20px;">© 2026 Vite & Gourmand</div>
+    </div>
+  </div>
+
+  <script>
+    function envoyerContact() {
+      var form = document.getElementById('formContact');
+      var msg = document.getElementById('msgSucces');
+      
+      // cacher formulaire et afficher message
+      form.style.display = 'none';
+      msg.style.display = 'block';
+      
+      return false; // empecher envoi
+    }
+  </script>
+</body>
+</html>
